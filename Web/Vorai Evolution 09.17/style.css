@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #26332b;
+    background: linear-gradient(135deg, #e8f5e9, #f5f1df);
+    line-height: 1.7;
+}
+
+h1 {
+    margin: 0;
+    padding: 70px 20px;
+    text-align: center;
+    color: white;
+    font-size: 4rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    background:
+        linear-gradient(rgba(25, 80, 45, 0.75), rgba(10, 50, 30, 0.85)),
+        url("dinosaur.jpg") center/cover;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+body > p,
+body > h2 {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body > p {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 0 20px;
+    font-size: 1.05rem;
+}
+
+h2 {
+    margin-top: 60px;
+    margin-bottom: 25px;
+    padding: 15px 20px;
+    color: #1b5e20;
+    font-size: 2rem;
+    border-left: 7px solid #4caf50;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 0 10px 10px 0;
+}
+
+h3 {
+    position: relative;
+    max-width: 1000px;
+    margin: 80px auto 0;
+    padding: 18px 25px;
+    color: white;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #2e7d32, #558b2f);
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+h3 + p {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 25px;
+    background: white;
+    border-left: 5px solid #81c784;
+    border-right: 5px solid #81c784;
+}
+
+h3 + p + p {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px 25px;
+    font-style: italic;
+    color: #607d63;
+    background: #f7faf5;
+    border-left: 5px solid #c5e1a5;
+}
+
+h3 + p + p + img {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    height: 450px;
+    object-fit: cover;
+    margin: 0 auto 70px;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+h3 + p + p + img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+b {
+    color: #2e7d32;
+}
+
+h3:last-of-type {
+    margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+    h1 {
+        padding: 50px 15px;
+        font-size: 2.5rem;
+    }
+
+    body > p {
+        font-size: 1rem;
+    }
+
+    h2 {
+        margin-top: 40px;
+        font-size: 1.6rem;
+    }
+
+    h3 {
+        margin-top: 50px;
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    h3 + p,
+    h3 + p + p {
+        padding: 15px;
+    }
+
+    h3 + p + p + img {
+        width: calc(100% - 30px);
+        height: 280px;
+        border-radius: 0 0 12px 12px;
+        margin-bottom: 40px;
+    }
+}
