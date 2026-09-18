@@ -1,0 +1,39 @@
+nav {
+
+   display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+
+    margin-top: 250px;
+    padding: 20px;
+
+    background-color: rgba(184,164,137);
+    border-radius: 12px;
+
+}
+
+a {
+
+    background-color:  rgb(248, 240, 227);
+    
+
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+
+    text-decoration: none;
+    color: white;
+    background-color: rgb(105, 94, 79);
+
+    border-radius: 8px;
+    border: 1px solid #555;
+
+    transition: 0.3s;
+}
+a:hover {
+    transform: translateY(-3px);
+}
