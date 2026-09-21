@@ -136,3 +136,14 @@ img{
         padding: 18px;
     }
 }
+
+
+ body { font-family: Arial; margin: 24px; }
+    .acc { max-width: 620px; border: 1px solid #ddd; border-radius: 14px; overflow: hidden; }
+    .item { border-top: 1px solid #eee; }
+    .item:first-child { border-top: 0; }
+    .head { padding: 14px; cursor: pointer; background: #fafafa; display:flex; justify-content:space-between; }
+    .body { padding: 14px; display: none; }
+    .item.open .body { display: block; }
+
+

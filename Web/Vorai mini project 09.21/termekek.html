@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <title>Accordion</title>
+ 
+</head>
+<body>
+  <h2>Accordion</h2>
+  <div class="acc" id="acc">
+    <div class="item">
+      <div class="head">aksis furo <span>+</span></div>
+      <div class="body"><img src="aksis furo.jpg" alt=""></div>
+    </div>
+    <div class="item">
+      <div class="head">vizmertek<span>+</span></div>
+      <div class="body"><img src="cizmertek.jpg" alt="">.</div>
+    </div>
+    <div class="item">
+      <div class="head">3. kérdés <span>+</span></div>
+      <div class="body">Harmadik válasz.</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("acc").addEventListener("click", (e) => {
+      const head = e.target.closest(".head");
+      if (!head) return;
+
+      const item = head.parentElement;
+
+      document.querySelectorAll(".item").forEach(x => { if (x !== item) x.classList.remove("open"); });
+      item.classList.toggle("open");
+    });
+  </script>
+</body>
+</html>
