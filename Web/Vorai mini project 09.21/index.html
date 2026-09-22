@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>index</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <nav>
+        <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+
+        <div class="menu" id="menu" class="story-script-regular">
+            <a href="termekek.html">Termekek</a>
+        </div>
+    </nav>
 
     <h1>BarkácsPajti</h1>
 <h2>Minden, amire szükséged van a barkácsoláshoz</h2>
@@ -35,7 +43,11 @@
 <h2>Boltunk</h2>
 <img src="uzlet.png" alt="">
 
-
+<script>
+    function toggleMenu() {
+        document.getElementById("menu").classList.toggle("show");
+    }
+</script>
 
 
 </body>
