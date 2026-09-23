@@ -1,0 +1,15 @@
+public class sept23 {
+
+    public static void main(String[]args) {
+
+    int kor = 17;
+
+
+    if (kor >= 18) {
+        System.out.println("Nagykorú");
+    } else {
+        System.out.println("Kiskorú");
+    }
+    }
+}
+    
