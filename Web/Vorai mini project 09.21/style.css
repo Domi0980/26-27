@@ -139,7 +139,7 @@ img{
 
 
  body { font-family: Arial; margin: 24px; }
-    .acc { max-width: 620px; border: 1px solid #ddd; border-radius: 14px; overflow: hidden; }
+    .acc { max-width: 620px; border: 1px solid #ddd; overflow: hidden; }
     .item { border-top: 1px solid #eee; }
     .item:first-child { border-top: 0; }
     .head { padding: 14px; cursor: pointer; background: #fafafa; display:flex; justify-content:space-between; }
