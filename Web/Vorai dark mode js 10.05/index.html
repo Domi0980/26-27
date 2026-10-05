@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<Section>
+    <h1>Saját név</h1>
+    <p>kis cica</p>
+</Section>
+
+<ul>
+    <li>
+        <span>Sötét</span> 
+        <span>Világos</span>
+</li>
+</ul>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('ul').click(function(){
+            $('ul').toggleClass('active')
+            $('section').toggleClass('dark')
+        })
+    })
+</script>
+    
+</body>
+</html>
