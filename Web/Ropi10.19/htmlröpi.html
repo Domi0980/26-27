@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Dolgozat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-100 min-h-screen font-sans text-slate-800 flex flex-col justify-between">
+
+    
+    <header class="bg-indigo-700 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid me-2 fa-file-code text-2xl text-indigo-200"></i>
+                <h1 class="text-xl font-bold tracking-tight">HTML Dolgozat</h1>
+            </div>
+            <div id="studentInfoBadge" class="hidden text-sm bg-indigo-800 px-3 py-1.5 rounded-lg border border-indigo-600 font-medium">
+                <span id="badgeName" class="font-bold"></span> (<span id="badgeClass"></span>)
+            </div>
+        </div>
+    </header>
+
+   
+    <main class="max-w-4xl mx-auto px-4 py-8 w-full flex-grow">
+
+        
+        <div id="loginCard" class="bg-white rounded-2xl shadow-xl p-8 max-w-lg mx-auto border border-slate-200">
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full mb-4">
+                    <i class="fa-solid fa-user-graduate text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">Dolgozat Megkezdése</h2>
+                <p class="text-slate-500 text-sm mt-1">Kérjük, add meg a neveket és az osztályodat a teszt elindításához.</p>
+            </div>
+
+            <form id="startForm" onsubmit="startExam(event)" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1" for="studentName">
+                        <i class="fa-solid fa-user text-indigo-500 mr-2"></i>Teljes Név
+                    </label>
+                    <input type="text" id="studentName" required placeholder="Egyértelműen a saját neved" 
+                           class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1" for="studentClass">
+                        <i class="fa-solid fa-graduation-cap text-indigo-500 mr-2"></i>Osztály / Csoport
+                    </label>
+                    <input type="text" id="studentClass" required placeholder="11A/C" 
+                           class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+                </div>
+
+                <div class="bg-amber-50 border border-amber-200 text-amber-800 p-4 rounded-xl text-xs space-y-1">
+                    <p class="font-bold flex items-center"><i class="fa-solid fa-circle-info mr-2"></i>Tudnivalók a dolgozathoz:</p>
+                    <ul class="list-disc list-inside space-y-0.5 ml-1 text-slate-700">
+                        <li>A dolgozat 10 nyitott kérdésből áll, mindegyik <strong>1 pontot</strong> ér.</li>
+                        <li>Lehetőséged van kérdésenként lezárni a válaszokat, vagy a végén egyben.</li>
+                        <li><strong class="text-rose-600">Figyelem!</strong> A lezárt válaszok többé NEM módosíthatók!</li>
+                    </ul>
+                </div>
+
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center space-x-2">
+                    <span>Dolgozat Indítása</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+
+        
+        <div id="examContainer" class="hidden space-y-6">
+
+           
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-4">
+                <div>
+                    <span class="text-xs uppercase tracking-wider text-slate-400 font-bold">Előrehaladás</span>
+                    <div class="flex items-center space-x-3 mt-1">
+                        <div class="w-48 bg-slate-200 rounded-full h-3 overflow-hidden">
+                            <div id="progressBar" class="bg-indigo-600 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                        <span id="progressText" class="text-sm font-semibold text-slate-700">0 / 10 lezárva</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-3">
+                    <button onclick="submitEntireExam()" id="finishExamBtn" 
+                            class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl font-bold shadow-sm hover:shadow transition flex items-center space-x-2">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>Dolgozat Lezárása és Beküldése</span>
+                    </button>
+                </div>
+            </div>
+
+           
+            <div id="scoreSummaryCard" class="hidden bg-white p-6 rounded-2xl shadow-md border-2 border-indigo-200 text-center">
+                <h3 class="text-2xl font-black text-slate-800 mb-2">Dolgozat Értékelése</h3>
+                <p class="text-slate-600 text-sm mb-4">Diák: <span id="summaryStudent" class="font-bold"></span></p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-lg mx-auto my-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <div class="text-xs text-slate-500 font-semibold uppercase">Összpontszám</div>
+                        <div id="scorePoints" class="text-2xl font-black text-indigo-600">0 / 10</div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <div class="text-xs text-slate-500 font-semibold uppercase">Százalék</div>
+                        <div id="scorePercentage" class="text-2xl font-black text-indigo-600">0%</div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <div class="text-xs text-slate-500 font-semibold uppercase">Jegy javaslat</div>
+                        <div id="scoreGrade" class="text-2xl font-black text-emerald-600">-</div>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-400 mt-2">*Az automatikus pontozás a kulcsszavak és kódminta alapján történt. A tanár felülvizsgálhatja.</p>
+            </div>
+
+            
+            <div id="questionsList" class="space-y-6">
+                
+            </div>
+
+            
+            <div class="text-center pt-4 pb-8">
+                <button onclick="submitEntireExam()" id="finishExamBtnBottom" 
+                        class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-xl font-bold shadow-md hover:shadow-lg transition inline-flex items-center space-x-2">
+                    <i class="fa-solid fa-check-double"></i>
+                    <span>Dolgozat Végleges Lezárása</span>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+   
+    <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-400">
+        EZ
+    </footer>
+
+    <script>
+        
+        const examData = [
+            {
+                id: 1,
+                question: "Melyik HTML tag felel meg a legmagasabb szintű címsornak egy weboldalon?",
+                sampleAnswer: "<h1> (vagy <h1>...</h1>)",
+                keywords: ["h1", "<h1>"],
+                hint: "Gondolj a címsorok hierarchiájára (1-től 6-ig)."
+            },
+            {
+                id: 2,
+                question: "Írd le a pontos HTML kódmintát egy külső weboldalra (pl. https://example.com) mutató hivatkozás (link) létrehozására!",
+                sampleAnswer: "<a href=\"https://example.com\">Hivatkozás szövege</a>",
+                keywords: ["<a", "href=", "</a>"],
+                hint: "Az 'a' tagnak szüksége van egy 'href' attribútumra."
+            },
+            {
+                id: 3,
+                question: "Melyik tag szolgál kép beillesztésére, és melyik kötelező attribútum adja meg a kép elérését (forrását)?",
+                sampleAnswer: "Az <img> tag, a forrást pedig a 'src' attribútum adja meg.",
+                keywords: ["img", "src"],
+                hint: "Kép tag rövidítése + source attribútum."
+            },
+            {
+                id: 4,
+                question: "Melyik HTML elemmel definiálunk szöveges bekezdést (paragrafust) a dokumentumban?",
+                sampleAnswer: "A <p> elemmel (vagy <p>...</p>).",
+                keywords: ["p", "<p>"],
+                hint: "A 'paragraph' angol szó első betűje."
+            },
+            {
+                id: 5,
+                question: "Hogyan hozhatunk létre számozatlan (bullet points / pontozott) listát HTML-ben?",
+                sampleAnswer: "A <ul> elemmel hozzuk létre a listát, és benne <li> elemekkel a listaelemeket.",
+                keywords: ["ul", "<ul>"],
+                hint: "Unordered List rövidítése."
+            },
+            {
+                id: 6,
+                question: "Hogyan adhatunk meg egyedi azonosítót egy HTML elemnek? Írj rá egy rövid attribútum példát!",
+                sampleAnswer: "Az 'id' attribútummal, például: id=\"fejlec\" vagy id=\"fomenu\".",
+                keywords: ["id=", "id"],
+                hint: "Egyetlen, egyedi azonosítóra szolgáló attribútum."
+            },
+            {
+                id: 7,
+                question: "Melyik tag szolgál táblázat egy sora (Table Row), és melyik egy sornak az adatcellája (Table Data) definiálására?",
+                sampleAnswer: "A sor definiálására a <tr> tag, a cella definiálására a <td> tag szolgál.",
+                keywords: ["tr", "td"],
+                hint: "Table Row = tr, Table Data = td."
+            },
+            {
+                id: 8,
+                question: "Melyik HTML elemmel hozhatunk létre legördülő választólistát (dropdown menu) egy űrlapon?",
+                sampleAnswer: "<select> elemmel hozzuk létre a listát, a választható opciókat pedig <option> tagekkel.",
+                keywords: ["select", "<select>"],
+                hint: "A kiválasztás angol kifejezése."
+            },
+            {
+                id: 9,
+                question: "Melyik HTML5 szemantikus elem jelöli egy weboldal vagy cikk záró, alsó részét (láblécét)?",
+                sampleAnswer: "A <footer> elem (vagy <footer>...</footer>).",
+                keywords: ["footer", "<footer>"],
+                hint: "Az oldal lábánál található rész."
+            },
+            {
+                id: 10,
+                question: "Melyik küldési metódust (method) kell használnunk űrlapoknál (form), ha jelszót vagy bizalmas adatot küldünk, és miért?",
+                sampleAnswer: "A POST metódust, mert nem jeleníti meg az adatokat a böngésző címsorában (az HTTP üzenet törzsében küldi).",
+                keywords: ["post"],
+                hint: "Nem a GET, ami láthatóvá tenné az URL-ben."
+            }
+        ];
+
+        
+        let studentInfo = { name: '', studentClass: '' };
+        let answersState = {}; 
+        let isExamFinished = false;
+
+        
+        function startExam(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('studentName').value.trim();
+            const classInput = document.getElementById('studentClass').value.trim();
+
+            if (!nameInput || !classInput) return;
+
+            studentInfo.name = nameInput;
+            studentInfo.studentClass = classInput;
+
+            
+            document.getElementById('badgeName').textContent = studentInfo.name;
+            document.getElementById('badgeClass').textContent = studentInfo.studentClass;
+            document.getElementById('studentInfoBadge').classList.remove('hidden');
+
+            
+            document.getElementById('loginCard').classList.add('hidden');
+            document.getElementById('examContainer').classList.remove('hidden');
+
+            
+            examData.forEach(q => {
+                answersState[q.id] = {
+                    answerText: '',
+                    isLocked: false,
+                    score: 0
+                };
+            });
+
+            renderQuestions();
+            updateProgress();
+        }
+
+        
+        function renderQuestions() {
+            const container = document.getElementById('questionsList');
+            container.innerHTML = examData.map((q, idx) => {
+                const state = answersState[q.id];
+                const isLocked = state.isLocked || isExamFinished;
+
+                return `
+                    <div id="card-${q.id}" class="bg-white rounded-2xl shadow-sm border ${isLocked ? 'border-slate-300 bg-slate-50/50' : 'border-slate-200'} p-6 transition">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full">
+                                ${idx + 1}. Kérdés (1 pont)
+                            </span>
+                            <span id="statusBadge-${q.id}" class="text-xs font-bold px-2.5 py-1 rounded-md ${isLocked ? 'bg-slate-200 text-slate-700' : 'bg-amber-100 text-amber-700'}">
+                                ${isLocked ? '<i class="fa-solid fa-lock mr-1"></i>Lezárva' : '<i class="fa-solid fa-pen mr-1"></i>Szerkeszthető'}
+                            </span>
+                        </div>
+
+                        <h3 class="text-slate-800 font-bold text-base mb-3 leading-relaxed">${q.question}</h3>
+
+                        <div class="space-y-3">
+                            <textarea 
+                                id="input-${q.id}" 
+                                rows="3" 
+                                ${isLocked ? 'disabled' : ''} 
+                                oninput="handleInput(${q.id}, this.value)"
+                                placeholder="Írd ide a válaszodat kifejtve..." 
+                                class="w-full p-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-slate-800 font-mono text-sm leading-relaxed transition resize-y disabled:bg-slate-100 disabled:text-slate-600 disabled:cursor-not-allowed"
+                            >${state.answerText}</textarea>
+
+                            <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+                                <div id="hintBox-${q.id}" class="text-xs text-slate-400 italic">
+                                    <i class="fa-regular fa-lightbulb text-amber-500 mr-1"></i>Tipp: ${q.hint}
+                                </div>
+
+                                <button 
+                                    id="lockBtn-${q.id}" 
+                                    onclick="lockSingleQuestion(${q.id})" 
+                                    ${isLocked ? 'disabled' : ''}
+                                    class="bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-300 text-white text-xs font-bold px-4 py-2.5 rounded-lg shadow-sm transition flex items-center space-x-1.5 disabled:cursor-not-allowed">
+                                    <i class="fa-solid ${isLocked ? 'fa-lock' : 'fa-check'}"></i>
+                                    <span>${isLocked ? 'Válasz Lezárva' : 'Kérdés Lezárása'}</span>
+                                </button>
+                            </div>
+
+                            <!-- Evaluation result display (shown when locked or exam finished) -->
+                            <div id="eval-${q.id}" class="${isLocked ? '' : 'hidden'} mt-4 p-4 rounded-xl text-xs space-y-2 border">
+                                ${renderEvaluationHTML(q.id)}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        
+        function handleInput(id, value) {
+            if (!answersState[id].isLocked) {
+                answersState[id].answerText = value;
+            }
+        }
+
+        
+        function lockSingleQuestion(id) {
+            const state = answersState[id];
+            const textVal = document.getElementById(`input-${id}`).value.trim();
+
+            if (!textVal) {
+                if (!confirm("Üresen hagytad a válaszmezőt. Biztosan lezárod ezt a kérdést?")) {
+                    return;
+                }
+            }
+
+            state.answerText = textVal;
+            state.isLocked = true;
+
+            
+            state.score = evaluateAnswer(id, textVal);
+
+            
+            renderQuestions();
+            updateProgress();
+        }
+
+        
+        function submitEntireExam() {
+            if (!isExamFinished) {
+                const unlockedCount = Object.values(answersState).filter(s => !s.isLocked).length;
+                
+                let msg = "Biztosan lezárod és beküldöd a teljes dolgozatot?";
+                if (unlockedCount > 0) {
+                    msg = `Még ${unlockedCount} kérdést nem zártál le egyenként. A lezárással minden megadott válasz végleg rögzítésre kerül. Folytatod?`;
+                }
+
+                if (!confirm(msg)) return;
+
+                
+                examData.forEach(q => {
+                    const textarea = document.getElementById(`input-${q.id}`);
+                    if (textarea) {
+                        answersState[q.id].answerText = textarea.value.trim();
+                    }
+                    answersState[q.id].isLocked = true;
+                    answersState[q.id].score = evaluateAnswer(q.id, answersState[q.id].answerText);
+                });
+
+                isExamFinished = true;
+
+               
+                document.getElementById('finishExamBtn').disabled = true;
+                document.getElementById('finishExamBtn').classList.add('opacity-50', 'cursor-not-allowed');
+                document.getElementById('finishExamBtnBottom').disabled = true;
+                document.getElementById('finishExamBtnBottom').classList.add('opacity-50', 'cursor-not-allowed');
+
+                renderQuestions();
+                updateProgress();
+                showScoreSummary();
+            }
+        }
+
+        
+        function evaluateAnswer(qId, userText) {
+            if (!userText || userText.trim().length === 0) return 0;
+
+            const q = examData.find(item => item.id === qId);
+            const lowerUser = userText.toLowerCase().trim();
+
+            
+            let matches = 0;
+            q.keywords.forEach(kw => {
+                if (lowerUser.includes(kw.toLowerCase())) {
+                    matches++;
+                }
+            });
+
+            
+            if (matches > 0) {
+                return 1;
+            }
+
+            return 0;
+        }
+
+        
+        function renderEvaluationHTML(qId) {
+            const state = answersState[qId];
+            const q = examData.find(item => item.id === qId);
+
+            const isCorrect = state.score === 1;
+
+            return `
+                <div class="${isCorrect ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-rose-50 border-rose-200 text-rose-900'} p-3 rounded-lg">
+                    <div class="flex items-center justify-between font-bold mb-1">
+                        <span><i class="fa-solid ${isCorrect ? 'fa-circle-check text-emerald-600' : 'fa-circle-xmark text-rose-600'} mr-1.5"></i>
+                        ${isCorrect ? 'Pontszám: 1 / 1 pont (Helyes)' : 'Pontszám: 0 / 1 pont (Pontatlan / Hiányos)'}
+                        </span>
+                    </div>
+                    <p class="mt-1"><strong>Minta / Elvárt válasz:</strong> <code class="bg-white/80 px-1.5 py-0.5 rounded border font-mono text-slate-800">${escapeHtml(q.sampleAnswer)}</code></p>
+                </div>
+            `;
+        }
+
+        
+        function showScoreSummary() {
+            let totalPoints = 0;
+            Object.values(answersState).forEach(s => {
+                totalPoints += s.score;
+            });
+
+            const percentage = Math.round((totalPoints / examData.length) * 100);
+
+            
+            let grade = "1 (Elégtelen)";
+            if (percentage >= 85) grade = "5 (Jeles)";
+            else if (percentage >= 70) grade = "4 (Jó)";
+            else if (percentage >= 55) grade = "3 (Közepes)";
+            else if (percentage >= 40) grade = "2 (Elégséges)";
+
+            document.getElementById('summaryStudent').textContent = `${studentInfo.name} (${studentInfo.studentClass})`;
+            document.getElementById('scorePoints').textContent = `${totalPoints} / ${examData.length}`;
+            document.getElementById('scorePercentage').textContent = `${percentage}%`;
+            document.getElementById('scoreGrade').textContent = grade;
+
+            const summaryCard = document.getElementById('scoreSummaryCard');
+            summaryCard.classList.remove('hidden');
+            summaryCard.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        
+        function updateProgress() {
+            const lockedCount = Object.values(answersState).filter(s => s.isLocked).length;
+            const percentage = Math.round((lockedCount / examData.length) * 100);
+
+            document.getElementById('progressBar').style.width = `${percentage}%`;
+            document.getElementById('progressText').textContent = `${lockedCount} / ${examData.length} lezárva`;
+
+            if (lockedCount === examData.length && !isExamFinished) {
+                submitEntireExam();
+            }
+        }
+
+       
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+    </script>
+</body>
+</html>
