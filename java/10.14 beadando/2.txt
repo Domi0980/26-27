@@ -1,0 +1,22 @@
+class Auto{
+
+    String nev;
+    double teljesitmeny;
+    int loero;
+}
+public class Main {
+    public static void Main(String[] args){
+
+        Auto Ferrari = new Auto();
+        Ferrari.nev = "Ferrari F50";
+        Ferrari.teljesitmeny = 382.0;
+        Ferrari.loero = 520;
+
+        System.out.println(Ferrari.nev + " teljesítmény: "
+                + Ferrari.teljesitmeny + " kW.");
+
+        System.out.println(Ferrari.nev + " lóereje: "
+                + Ferrari.loero + " LE.");
+    }
+
+}

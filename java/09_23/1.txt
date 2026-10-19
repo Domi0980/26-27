@@ -1,15 +1,19 @@
+import java.util.Scanner;
 public class sept23 {
 
     public static void main(String[]args) {
+        
+        int szam = 10;
+        int nap = 6;
 
-    int kor = 17;
-
-
-    if (kor >= 18) {
-        System.out.println("Nagykorú");
-    } else {
-        System.out.println("Kiskorú");
+    if (szam >= 10 && szam >= 20) {
+     System.out.print("10 és 20 között");   
     }
+    if (nap == 6 || nap == 7) {
+        System.out.println("Hétvége");;
     }
-}
+       }
+
+    }
+
     

@@ -1,0 +1,15 @@
+class Cica{
+
+    String nev;
+    int kor;
+}
+public class Main {
+    public static void Main(String[] args){
+
+        Cica CicasMicas = new Cica();
+        CicasMicas.nev = "Potyi";
+        CicasMicas.kor = 3;
+
+        System.out.println(CicasMicas.nev + " " + CicasMicas.kor + "Éves");
+    }
+}

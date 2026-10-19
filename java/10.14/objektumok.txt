@@ -1,0 +1,18 @@
+class Kutya {
+
+    String nev;
+    int kor;
+}
+public class main {
+    public static void main(String[] args){
+
+        Kutya micsodaKutya = new Kutya();
+        micsodaKutya.nev = "Bodri";
+        micsodaKutya.kor = 5;
+
+System.out.println(micsodaKutya.nev + " " + micsodaKutya.kor+"Éves");
+
+    }
+
+
+}
