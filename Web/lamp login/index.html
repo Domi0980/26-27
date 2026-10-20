@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Lamp Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="off">
+
+  <nav class="themes" aria-label="Lamp colour">
+    <button class="swatch" data-color="#f5a524" data-rgb="245,165,36" style="--c:#f5a524" aria-label="Amber" aria-pressed="true"></button>
+    <button class="swatch" data-color="#ffd84a" data-rgb="255,216,74" style="--c:#ffd84a" aria-label="Yellow" aria-pressed="false"></button>
+    <button class="swatch" data-color="#ff3d8b" data-rgb="255,61,139" style="--c:#ff3d8b" aria-label="Pink" aria-pressed="false"></button>
+    <button class="swatch" data-color="#35d0ff" data-rgb="53,208,255" style="--c:#35d0ff" aria-label="Cyan" aria-pressed="false"></button>
+    <button class="swatch" data-color="#4ade80" data-rgb="74,222,128" style="--c:#4ade80" aria-label="Green" aria-pressed="false"></button>
+    <button class="swatch" data-color="#ffffff" data-rgb="255,255,255" style="--c:#ffffff" aria-label="White" aria-pressed="false"></button>
+    <span class="sep"></span>
+    <button class="power" id="power" aria-label="Turn the lamp on or off" aria-pressed="false">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>
+    </button>
+  </nav>
+
+  <div class="stage">
+
+    <section class="lamp-wrap" aria-label="Desk lamp">
+      <svg class="lamp" id="lamp" viewBox="0 0 320 440" role="img" aria-label="Desk lamp">
+        <defs>
+          <linearGradient id="coneGrad" gradientUnits="userSpaceOnUse" x1="0" y1="18" x2="0" y2="380">
+            <stop offset="0" style="stop-color:var(--lamp)" stop-opacity=".55"/>
+            <stop offset="1" style="stop-color:var(--lamp)" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="shadeGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#34343f"/>
+            <stop offset="1" stop-color="#14141a"/>
+          </linearGradient>
+          <filter id="soft" x="-30%" y="-10%" width="160%" height="130%"><feGaussianBlur stdDeviation="7"/></filter>
+        </defs>
+
+        <ellipse cx="120" cy="414" rx="80" ry="13" fill="#0c0c10"/>
+        <path d="M68 410 Q120 368 172 410 Z" fill="#20202a" stroke="#c9a24a" stroke-width="1.2"/>
+
+        <line x1="120" y1="392" x2="170" y2="250" stroke="#2b2b35" stroke-width="8" stroke-linecap="round"/>
+        <line x1="170" y1="250" x2="110" y2="140" stroke="#2b2b35" stroke-width="8" stroke-linecap="round"/>
+        <line x1="120" y1="392" x2="170" y2="250" stroke="#4a4a58" stroke-width="1.5" stroke-linecap="round" transform="translate(-2 0)"/>
+        <circle cx="170" cy="250" r="8" fill="#20202a" stroke="#c9a24a" stroke-width="1.5"/>
+        <circle cx="120" cy="392" r="6" fill="#20202a" stroke="#c9a24a" stroke-width="1.5"/>
+
+        <g id="cord" class="cord" tabindex="0" role="button" aria-label="Pull the cord to turn the lamp on" aria-pressed="false">
+          <line x1="170" y1="258" x2="170" y2="322" stroke="#c9a24a" stroke-width="1.5"/>
+          <circle class="bead" cx="170" cy="326" r="5" fill="#c9a24a"/>
+          <rect x="150" y="250" width="40" height="95" fill="transparent"/>
+        </g>
+        <text class="hint" x="184" y="330">Pull to turn on</text>
+
+
+        <g id="head" transform="translate(110 140) rotate(-25)">
+          <path class="cone" d="M-46 18 L58 18 L190 380 L-178 380 Z" fill="url(#coneGrad)" filter="url(#soft)"/>
+          <path d="M-46 14 C-46 -34 -20 -52 6 -52 C32 -52 58 -34 58 14 Z" fill="url(#shadeGrad)" stroke="#c9a24a" stroke-width="1.2"/>
+          <ellipse class="rim" cx="6" cy="14" rx="52" ry="8" fill="#23232c" stroke="#c9a24a" stroke-width="1.2"/>
+          <circle class="bulb" cx="6" cy="15" r="8"/>
+          <circle id="pivot" cx="0" cy="0" r="7" fill="#20202a" stroke="#c9a24a" stroke-width="1.5"/>
+        </g>
+      </svg>
+    </section>
+
+    <main class="card" id="card" aria-labelledby="title">
+      <header>
+        <h1 id="title">Welcome</h1>
+        <p id="subtitle">Sign in to continue to your account</p>
+      </header>
+
+      <div class="tabs" role="tablist" data-active="login">
+        <span class="thumb" aria-hidden="true"></span>
+        <button type="button" role="tab" id="tabLogin" aria-selected="true">Sign In</button>
+        <button type="button" role="tab" id="tabRegister" aria-selected="false">Sign Up</button>
+      </div>
+
+      <form id="form" novalidate>
+        <div class="group">
+          <label for="user">Username or Email</label>
+          <div class="field">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+            <input id="user" name="user" type="text" placeholder="Enter your username or email" autocomplete="username">
+          </div>
+          <small class="err" id="userErr"></small>
+        </div>
+
+        <div class="group">
+          <div class="row">
+            <label for="pass">Password</label>
+            <a href="#" class="forgot" id="forgot">Forgot?</a>
+          </div>
+          <div class="field">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+            <input id="pass" name="pass" type="password" placeholder="Enter your password" autocomplete="current-password">
+            <button type="button" class="eye" id="eye" aria-label="Show password">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <small class="err" id="passErr"></small>
+        </div>
+
+        <label class="check">
+          <input type="checkbox" id="remember" checked>
+          <span class="box" aria-hidden="true"></span>
+          Remember me
+        </label>
+
+        <button type="submit" class="primary" id="submit">Sign in</button>
+      </form>
+
+      <div class="or"><span>or continue with</span></div>
+
+      <div class="social">
+        <button type="button" data-p="Google"><b>G</b> Google</button>
+        <button type="button" data-p="GitHub"><b>&lt;/&gt;</b> GitHub</button>
+        <button type="button" data-p="Apple"><b>A</b> Apple</button>
+      </div>
+
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
