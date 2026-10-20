@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Északi Park</title>
+    <link rel="stylesheet" href="sotet.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>South Park</h1>
+            <p>A világ egyik legismertebb animációs sorozata</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <a href="#fooldal">Főoldal</a>
+            <a href="#sorozat">A sorozatról</a>
+            <a href="#szereplok">Szereplők</a>
+            <a href="#erdekessegek">Érdekességek</a>
+            <a href="#kapcsolat">Kapcsolat</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <section id="fooldal" class="card">
+            <h2>Üdvözöl a South Park!</h2>
+
+            <p>
+                Ismerd meg Stan, Kyle, Cartman és Kenny kalandjait!
+                A South Park egy szókimondó, humoros animációs sorozat,
+                amely a mindennapi élet és a társadalom problémáit
+                mutatja be sajátos stílusban.
+            </p>
+        </section>
+
+        <section id="sorozat" class="card">
+            <h2>A sorozat története</h2>
+
+            <article>
+                <h3>Hogyan kezdődött?</h3>
+
+                <p>
+                    A South Park című amerikai animációs sorozatot
+                    Trey Parker és Matt Stone alkotta meg.
+                    A sorozat 1997-ben indult, és hamar népszerűvé
+                    vált egyedi humora és merész témái miatt.
+                </p>
+            </article>
+
+            <article>
+                <h3>Miről szól?</h3>
+
+                <p>
+                    A történet a Colorado államban található,
+                    kitalált South Park városában játszódik.
+                    A középpontban négy iskolás fiú áll, akik
+                    gyakran keverednek vicces, furcsa és abszurd
+                    kalandokba.
+                </p>
+            </article>
+
+            <article>
+                <h3>A sorozat humora</h3>
+
+                <p>
+                    A South Park humorral és szatírával mutatja be
+                    a társadalmat. Gyakran foglalkozik politikával,
+                    hírességekkel, a médiával és a modern világ
+                    különböző problémáival.
+                </p>
+            </article>
+        </section>
+
+        <section id="szereplok">
+            <h2>A főszereplők</h2>
+
+            <article class="card">
+                <h3>Stan Marsh</h3>
+
+                <p>
+                    Stan általában józan gondolkodású és barátságos.
+                    Gyakran próbálja megérteni a körülötte történő
+                    furcsa eseményeket.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>Kyle Broflovski</h3>
+
+                <p>
+                    Kyle intelligens, határozott fiú, aki gyakran
+                    kiáll az igazság mellett. Cartmannel rendszeresen
+                    vitába keveredik.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>Eric Cartman</h3>
+
+                <p>
+                    Cartman a sorozat egyik legismertebb szereplője.
+                    Öntelt, önző és manipulatív viselkedése gyakran
+                    vezet humoros és kiszámíthatatlan helyzetekhez.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>Kenny McCormick</h3>
+
+                <p>
+                    Kenny a narancssárga kapucnis kabátjáról ismert.
+                    Halk beszéde és a sorozat korai évadaiban
+                    visszatérő sorsa a karakter egyik jellegzetessége.
+                </p>
+            </article>
+
+        </section id="video">
+
+<article>
+        <video controls poster="eszaki park.jpg">
+            <source src="south-park-bigger-longer-uncut-how-would-you-like-to-suck-my-balls-dub.mp4" type="video/mp4">
+        </video>
+
+        <section>
+
+
+        </section>
+
+        <section id="erdekessegek" class="card">
+            <h2>Érdekességek</h2>
+
+            <ul>
+                <li>A sorozat első epizódja 1997-ben jelent meg.</li>
+                <li>A készítők Trey Parker és Matt Stone.</li>
+                <li>A történet egy kitalált coloradói városban játszódik.</li>
+                <li>A sorozat felnőtteknek szóló animációs vígjáték.</li>
+                <li>Gyakran használ szatírát aktuális társadalmi témákhoz.</li>
+            </ul>
+        </section>
+
+        <aside class="card">
+            <h3>Tudtad?</h3>
+
+            <p>
+                A South Park szereplőinek egyszerű, kivágott papírokra
+                emlékeztető megjelenése a sorozat egyik legismertebb
+                vizuális sajátossága.
+            </p>
+        </aside>
+
+        <section id="kapcsolat" class="card">
+            <h2>Írd meg a véleményed!</h2>
+
+            <p>
+                Neked ki a kedvenc South Park-szereplőd?
+                Küldd el nekünk a véleményed!
+            </p>
+
+            <form action="#" method="post">
+
+                <label for="nev">Név:</label>
+                <input
+                    type="text"
+                    id="nev"
+                    name="nev"
+                    placeholder="Írd be a neved"
+                    required
+                >
+
+                <label for="kedvenc">Kedvenc szereplőd:</label>
+                <select id="kedvenc" name="kedvenc">
+                    <option value="stan">Stan Marsh</option>
+                    <option value="kyle">Kyle Broflovski</option>
+                    <option value="cartman">Eric Cartman</option>
+                    <option value="kenny">Kenny McCormick</option>
+                </select>
+
+                <label for="uzenet">Vélemény:</label>
+                <textarea
+                    id="uzenet"
+                    name="uzenet"
+                    rows="5"
+                    placeholder="Írd ide a véleményed..."
+                    required
+                ></textarea>
+
+                <button type="submit">Küldés</button>
+                <p id="nem">Ne kattints ra mert nem mukszik</p>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 South Park oldal</p>
+            <p>Nem hivatalos rajongói weboldal.</p>
+            <a href="#fooldal">Vissza a tetejére</a>
+        </div>
+    </footer>
+
+</body>
+</html>
