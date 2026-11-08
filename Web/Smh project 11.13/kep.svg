@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" role="img" aria-label="Két beszélgetőbuborék: egy kérdés és egy válasz">
+  <rect width="420" height="300" fill="#1d3461"/>
+  <path d="M40 40h230a22 22 0 0 1 22 22v86a22 22 0 0 1-22 22H110l-40 34v-34H40a22 22 0 0 1-22-22V62a22 22 0 0 1 22-22z" fill="#faf6ee"/>
+  <rect x="50" y="68" width="190" height="12" rx="6" fill="#0f1f3d"/>
+  <rect x="50" y="94" width="150" height="12" rx="6" fill="#0f1f3d" opacity=".6"/>
+  <rect x="50" y="120" width="100" height="12" rx="6" fill="#0f1f3d" opacity=".35"/>
+  <path d="M150 170h230a22 22 0 0 1 22 22v66a22 22 0 0 1-22 22h-30v34l-40-34H150a22 22 0 0 1-22-22v-66a22 22 0 0 1 22-22z" fill="#0f1f3d"/>
+  <circle cx="210" cy="225" r="9" fill="#faf6ee"/><circle cx="250" cy="225" r="9" fill="#faf6ee" opacity=".7"/><circle cx="290" cy="225" r="9" fill="#faf6ee" opacity=".4"/>
+</svg>

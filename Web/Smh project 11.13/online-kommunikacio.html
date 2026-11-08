@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Online kommunikáció</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="belso">
+<div class="fejlec-sor"><span class="logo">Kommunikálj hatékonyan!</span>
+<nav aria-label="Főmenü"><ul>
+<li><a href="index.html">Kezdőlap</a></li>
+<li><a href="kommunikacio.html">Alapok</a></li>
+<li><a href="fejlesztoi-kommunikacio.html">Fejlesztői csapat</a></li>
+<li><a href="online-kommunikacio.html" class="aktiv">Online kommunikáció</a></li>
+</ul></nav>
+</div>
+<div class="oldalcim"><h1>Online kommunikáció</h1><p>Kulturált és érthető üzenetek a képernyőn keresztül.</p></div>
+</div></header>
+<main>
+<section>
+<h2>Melyik csatornát mikor használjuk?</h2>
+<div class="tablazat-keret">
+<table>
+<thead><tr><th>Kommunikációs forma</th><th>Mikor használjuk?</th><th>Mire figyeljünk?</th></tr></thead>
+<tbody>
+<tr><td>E-mail</td><td>Hivatalos ügyek</td><td>Tárgymező</td></tr>
+<tr><td>Chat</td><td>Gyors egyeztetés</td><td>Rövidség</td></tr>
+<tr><td>Videóhívás</td><td>Összetett megbeszélés</td><td>Felkészülés</td></tr>
+<tr><td>Hibajegy</td><td>Programhiba</td><td>Pontos leírás</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section>
+<h2>A legfontosabb szabályok</h2>
+<div class="racs">
+<article class="kartya"><h3>Kulturált e-mail</h3><ol><li>Beszédes <strong>tárgymező</strong>.</li><li>Megszólítás és köszönés.</li><li>Rövid, tagolt szöveg.</li><li>Udvarias lezárás, aláírás.</li></ol></article>
+<article class="kartya"><h3>Chat és videóhívás</h3><p>Chat: gyors, rövid kérdésekre. Videóhívás: ha a levelezés háromnál több fordulót ér el, vagy sok az érzelem és a vita.</p></article>
+<article class="kartya"><h3>Szakmai üzenet</h3><p>Mondd el a lényeget az első mondatban, utána jöhet a háttér. Kérj konkrét választ vagy határidőt.</p></article>
+<article class="kartya figyelem"><h3>Mitől félreérthető?</h3><ul><li>Túl rövid, parancsoló mondat.</li><li>Ironikus megjegyzés.</li><li>Csupa nagybetű (olyan, mintha kiabálnál).</li><li>Hiányzó háttér.</li></ul></article>
+</div>
+</section>
+
+<section>
+<h2>Jó vagy rossz kommunikáció?</h2>
+<p>Olvasd el a helyzetet, gondold végig, mi a baj, majd kattints a gombra.</p>
+
+<article class="szituacio">
+<h3>1. Hibabejelentés</h3>
+<p class="uzenet rossz">„Nem működik a program. Javítsd meg!”</p>
+<button type="button" aria-expanded="false">Megoldás megjelenítése</button>
+<div class="megoldas" hidden>
+<p><strong>Miért rossz?</strong> Nem derül ki, melyik funkció romlott el, mikor és hogyan. Parancsoló hangú, nincs benne köszönés.</p>
+<p class="uzenet jo"><em>Hatékonyabb változat:</em> „A bejelentkezési oldalon a Bejelentkezés gombra kattintva hibaüzenet jelenik meg. Chrome böngészőben próbáltam, a hiba 3 alkalomból 3-szor reprodukálható.”</p>
+</div>
+</article>
+
+<article class="szituacio">
+<h3>2. E-mail tárgymező</h3>
+<p class="uzenet rossz">Tárgy: „Kérdés”</p>
+<button type="button" aria-expanded="false">Megoldás megjelenítése</button>
+<div class="megoldas" hidden>
+<p><strong>Miért rossz?</strong> A címzett nem tudja, miről szól a levél, és nem tudja a fontossági sorrendet sem. Később keresni sem lehet benne.</p>
+<p class="uzenet jo"><em>Hatékonyabb változat:</em> „Kérdés a webshop projekt határidejéről (válasz péntekig)”</p>
+</div>
+</article>
+
+<article class="szituacio">
+<h3>3. Segítségkérés chaten</h3>
+<p class="uzenet rossz">„Valami hibát ír, nem tudod, mi lehet?”</p>
+<button type="button" aria-expanded="false">Megoldás megjelenítése</button>
+<div class="megoldas" hidden>
+<p><strong>Miért rossz?</strong> Nincs benne a hibaüzenet, a kód vagy a kontextus, ezért a másiknak vissza kell kérdeznie.</p>
+<p class="uzenet jo"><em>Hatékonyabb változat:</em> „A <code>login.js</code> 42. sorában ezt a hibaüzenetet kapom: <code>TypeError: user is undefined</code>. Már ellenőriztem az adatbázis-kapcsolatot, az működik. Van ötleted?”</p>
+</div>
+</article>
+
+<article class="szituacio">
+<h3>4. Kódreview megjegyzés</h3>
+<p class="uzenet rossz">„Ez a kód borzalmas, írd át.”</p>
+<button type="button" aria-expanded="false">Megoldás megjelenítése</button>
+<div class="megoldas" hidden>
+<p><strong>Miért rossz?</strong> Minősíti a munkát, nem mondja meg a konkrét hibát, és nem ad javaslatot, ezért nem segít a fejlesztésben.</p>
+<p class="uzenet jo"><em>Hatékonyabb változat:</em> „A függvény 3 dolgot csinál egyszerre. Ha szétbontjuk, könnyebb lesz tesztelni. Ebben segítsek?”</p>
+</div>
+</article>
+
+<article class="szituacio">
+<h3>5. Csúszás jelzése a projektvezetőnek</h3>
+<p class="uzenet rossz">„Nem lesz kész.”</p>
+<button type="button" aria-expanded="false">Megoldás megjelenítése</button>
+<div class="megoldas" hidden>
+<p><strong>Miért rossz?</strong> Nincs benne ok, új határidő és megoldási javaslat, ezért a vezető nem tud dönteni.</p>
+<p class="uzenet jo"><em>Hatékonyabb változat:</em> „A fizetési modul a külső API hibája miatt két napot csúszik. Szerdára tudom befejezni. Ha segítség jön a tesztelésben, csütörtökre minden elkészülhet.”</p>
+</div>
+</article>
+</section>
+</main>
+<script>
+document.querySelectorAll('.szituacio button').forEach(function (gomb) {
+  gomb.addEventListener('click', function () {
+    var doboz = gomb.nextElementSibling;
+    var nyitva = !doboz.hidden;
+    doboz.hidden = nyitva;
+    gomb.setAttribute('aria-expanded', String(!nyitva));
+    gomb.textContent = nyitva ? 'Megoldás megjelenítése' : 'Megoldás elrejtése';
+  });
+});
+</script>
+<footer><p>Kommunikációs kézikönyv fejlesztőknek – iskolai projekt &middot; <a href="wireframe.html">Drótváz</a></p></footer>
+</body>
+</html>
