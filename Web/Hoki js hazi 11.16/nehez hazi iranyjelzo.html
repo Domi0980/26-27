@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>awrf</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background: #ffffff;
+      color: #222222;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.sotet {
+      background: #1e1e1e;
+      color: #f0f0f0;
+    }
+    section {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #999;
+    }
+    .kiemelt {
+      background: #ffeb3b;
+      color: #222;
+      font-weight: bold;
+      padding: 0.5rem;
+    }
+    input {
+      padding: 0.4rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+  <section>
+    <h2>Osztályváltás</h2>
+    <p id="bekezdes">bekezdés, megjelenése változtatható.</p>
+    <button id="kiemelGomb">Kiemelés ki/be</button>
+  </section>
+
+  <section>
+    <h2>Név lista</h2>
+    <ul id="nevLista"></ul>
+  </section>
+
+  <section>
+    <h2>Név keresés</h2>
+    <input type="text" id="kereso" placeholder="Kezdj el gépelni...">
+    <ul id="szurtLista"></ul>
+  </section>
+
+  <section>
+    <h2>Theme switch</h2>
+    <button id="temaGomb">Switch</button>
+  </section>
+
+  <script>
+
+    const bekezdes = document.getElementById("bekezdes");
+    document.getElementById("kiemelGomb").addEventListener("click", () => {
+      bekezdes.classList.toggle("kiemelt");
+    });
+
+    const nevek = ["Peti", "Cica", "Abdul", "Ahmed", "Jamal"];
+    const nevLista = document.getElementById("nevLista");
+
+    nevek.forEach(nev => {
+      const li = document.createElement("li");
+      li.textContent = nev;
+      nevLista.appendChild(li);
+    });
+
+    const kereso = document.getElementById("kereso");
+    const szurtLista = document.getElementById("szurtLista");
+
+    function listaMegjelenit(lista) {
+      szurtLista.innerHTML = "";
+      lista.forEach(nev => {
+        const li = document.createElement("li");
+        li.textContent = nev;
+        szurtLista.appendChild(li);
+      });
+    }
+
+    kereso.addEventListener("input", () => {
+      const keresett = kereso.value.toLowerCase();
+      const talalatok = nevek.filter(nev =>
+        nev.toLowerCase().includes(keresett)
+      );
+      listaMegjelenit(talalatok);
+    });
+
+    listaMegjelenit(nevek);
+
+
+    document.getElementById("temaGomb").addEventListener("click", () => {
+      document.body.classList.toggle("sotet");
+    });
+  </script>
+</body>
+</html>

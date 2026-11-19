@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drótváz – Kommunikálj hatékonyan!</title>
+<style>
+body{font-family:Arial,sans-serif;background:#fff;color:#333;margin:0;padding:1.5rem;line-height:1.5}
+h1,h2{font-weight:normal} .sor{display:flex;gap:2rem;flex-wrap:wrap;align-items:flex-start}
+.drot{border:2px solid #555;background:#f4f4f4;padding:10px;display:flex;flex-direction:column;gap:8px}
+.drot.asztali{width:520px;max-width:100%} .drot.mobil{width:230px}
+.d{border:2px dashed #888;background:#e4e4e4;padding:8px;text-align:center;font-size:.85rem}
+.d.kep{height:80px;display:flex;align-items:center;justify-content:center;background:#d0d0d0}
+.d.magas{height:60px;display:flex;align-items:center;justify-content:center}
+.k{display:flex;gap:8px}.k>.d{flex:1}
+.d.nav{display:flex;gap:6px;justify-content:space-around}
+.jel{font-size:.9rem;color:#555;max-width:520px}
+</style>
+</head>
+<body>
+<h1>Drótváz (wireframe)</h1>
+<p class="jel">Szürke dobozok: tartalmi blokkok. A kezdőlap és a többi oldal elrendezése asztali és mobil nézetben.</p>
+
+<h2>1. Kezdőlap (index.html)</h2>
+<div class="sor">
+<div class="drot asztali">
+<div class="d">&lt;header&gt; – Logó + &lt;nav&gt;</div>
+<div class="d nav"><span>Kezdőlap</span><span>Alapok</span><span>Fejlesztői</span><span>Online</span></div>
+<div class="k"><div class="d magas">H1 cím + bevezető</div><div class="d kep">&lt;img&gt; illusztráció</div></div>
+<div class="d magas">Idézet-buborék</div>
+<div class="d">&lt;section&gt; Miért fontos? (cím + szöveg)</div>
+<div class="k"><div class="d magas">Kártya 1</div><div class="d magas">Kártya 2</div><div class="d magas">Kártya 3</div></div>
+<div class="d">&lt;section&gt; Merre tovább? (linkek)</div>
+<div class="d">&lt;footer&gt;</div>
+</div>
+<div class="drot mobil">
+<div class="d">&lt;header&gt; Logó</div>
+<div class="d">Menü (egymás alatt)</div>
+<div class="d magas">H1 + bevezető</div>
+<div class="d kep">&lt;img&gt;</div>
+<div class="d magas">Idézet-buborék</div>
+<div class="d magas">Kártya 1</div><div class="d magas">Kártya 2</div><div class="d magas">Kártya 3</div>
+<div class="d">Linkek</div>
+<div class="d">&lt;footer&gt;</div>
+</div>
+</div>
+
+<h2>2. Alapok / 3. Fejlesztői csapat</h2>
+<div class="drot asztali">
+<div class="d">&lt;header&gt; + &lt;nav&gt; + oldalcím (H1)</div>
+<div class="d">&lt;section&gt; H2 + bekezdések, felsorolások</div>
+<div class="k"><div class="d magas">Információs kártya</div><div class="d magas">Információs kártya</div></div>
+<div class="d">&lt;article&gt; kiemelt tartalom</div>
+<div class="d">&lt;footer&gt;</div>
+</div>
+
+<h2>4. Online kommunikáció</h2>
+<div class="drot asztali">
+<div class="d">&lt;header&gt; + &lt;nav&gt; + oldalcím (H1)</div>
+<div class="d magas">Táblázat: forma / mikor / mire figyeljünk</div>
+<div class="k"><div class="d magas">Szabály</div><div class="d magas">Szabály</div></div>
+<div class="d">„Jó vagy rossz kommunikáció?” – 5 helyzet<br>[rossz üzenet] [Megoldás gomb] → [miért rossz + jobb változat]</div>
+<div class="d">&lt;footer&gt;</div>
+</div>
+</body>
+</html>
