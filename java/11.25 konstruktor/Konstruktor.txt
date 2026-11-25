@@ -1,0 +1,69 @@
+class Tanulo {
+    String nev;
+    int eletkor;
+
+    Tanulo(String nev, int eletkor) {
+        this.nev = nev;
+        this.eletkor = eletkor;
+    }
+    void bemutatkozas() {
+        System.out.println("Nevem: " + nev);
+        System.out.println("Eletkorom: " + eletkor);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Tanulo tanulo1 = new Tanulo("Roli", 18);
+        Tanulo tanulo2 = new Tanulo("Bence", 18);
+        Tanulo tanulo3 = new Tanulo("Brigi", 18);
+        Tanulo tanulo4 = new Tanulo("Veroinka", 18);
+        Tanulo tanulo5 = new Tanulo("Dorka", 18);
+        Tanulo tanulo6 = new Tanulo("Vanessza", 18);
+        Tanulo tanulo7 = new Tanulo("Istvan", 18);
+        Tanulo tanulo8 = new Tanulo("Dani", 18);
+        Tanulo tanulo9 = new Tanulo("Luca", 18);
+        Tanulo tanulo10 = new Tanulo("Zeteny", 18);
+        Tanulo tanulo11 = new Tanulo("Levi", 18);
+        Tanulo tanulo12 = new Tanulo("Eszter", 18);
+        Tanulo tanulo13 = new Tanulo("Hanna", 18);
+        Tanulo tanulo14 = new Tanulo("En", 18);
+        Tanulo tanulo15 = new Tanulo("Peti", 18);
+        Tanulo tanulo16 = new Tanulo("Katrin", 18);
+        Tanulo tanulo17 = new Tanulo("Dorottya", 18);
+        Tanulo tanulo18 = new Tanulo("Zsuliett", 18);
+        Tanulo tanulo19 = new Tanulo("Anasztazia", 18);
+        Tanulo tanulo20 = new Tanulo("Milan", 18);
+        Tanulo tanulo21 = new Tanulo("Soma", 18);
+        Tanulo tanulo22 = new Tanulo("Dani", 18);
+        Tanulo tanulo23 = new Tanulo("Veronika", 18);
+        Tanulo tanulo24 = new Tanulo("Adrienn", 18);
+        Tanulo tanulo25 = new Tanulo("Kamilla", 18);
+
+        tanulo1.bemutatkozas();
+        tanulo2.bemutatkozas();
+        tanulo3.bemutatkozas();
+        tanulo4.bemutatkozas();
+        tanulo5.bemutatkozas();
+        tanulo6.bemutatkozas();
+        tanulo7.bemutatkozas();
+        tanulo8.bemutatkozas();
+        tanulo9.bemutatkozas();
+        tanulo10.bemutatkozas();
+        tanulo11.bemutatkozas();
+        tanulo12.bemutatkozas();
+        tanulo13.bemutatkozas();
+        tanulo14.bemutatkozas();
+        tanulo15.bemutatkozas();
+        tanulo16.bemutatkozas();
+        tanulo17.bemutatkozas();
+        tanulo18.bemutatkozas();
+        tanulo19.bemutatkozas();
+        tanulo20.bemutatkozas();
+        tanulo21.bemutatkozas();
+        tanulo22.bemutatkozas();
+        tanulo23.bemutatkozas();
+        tanulo24.bemutatkozas();
+        tanulo25.bemutatkozas();
+
+    }
+}

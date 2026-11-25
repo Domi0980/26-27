@@ -1,0 +1,115 @@
+class Tanulo2 {
+    String nev;
+    int eletkor;
+
+    void bemutatkozas() {
+        System.out.println("Nevem: " + nev);
+        System.out.println("Eletkorom: " + eletkor);
+    }
+}
+public class Main2 {
+    public static void main(String[] args) {
+        Tanulo2 tanulo1 = new Tanulo2();
+        tanulo1.nev = "Roli";
+        tanulo1.eletkor = 2;
+        Tanulo2 tanulo2 = new Tanulo2();
+        tanulo2.nev = "Dani";
+        tanulo2.eletkor = 2;
+        Tanulo2 tanulo3 = new Tanulo2();
+        tanulo3.nev = "Veronika";
+        tanulo3.eletkor = 2;
+        Tanulo2 tanulo4 = new Tanulo2();
+        tanulo4.nev = "Luca";
+        tanulo4.eletkor = 2;
+        Tanulo2 tanulo5 = new Tanulo2();
+        tanulo5.nev = "Bence";
+        tanulo5.eletkor = 2;
+        Tanulo2 tanulo6 = new Tanulo2();
+        tanulo6.nev = "Istvan";
+        tanulo6.eletkor = 2;
+        Tanulo2 tanulo7 = new Tanulo2();
+        tanulo7.nev = "Vanessza";
+        tanulo7.eletkor = 2;
+        Tanulo2 tanulo8 = new Tanulo2();
+        tanulo8.nev = "Eszter";
+        tanulo8.eletkor = 2;
+        Tanulo2 tanulo9 = new Tanulo2();
+        tanulo9.nev = "Hanna";
+        tanulo9.eletkor = 2;
+        Tanulo2 tanulo10 = new Tanulo2();
+        tanulo10.nev = "Zeteny";
+        tanulo10.eletkor = 2;
+        Tanulo2 tanulo11 = new Tanulo2();
+        tanulo11.nev = "Zsuliett";
+        tanulo11.eletkor = 2;
+        Tanulo2 tanulo12 = new Tanulo2();
+        tanulo12.nev = "Katrin";
+        tanulo12.eletkor = 2;
+        Tanulo2 tanulo13 = new Tanulo2();
+        tanulo13.nev = "En";
+        tanulo13.eletkor = 2;
+        Tanulo2 tanulo14 = new Tanulo2();
+        tanulo14.nev = "Dorottya";
+        tanulo14.eletkor = 2;
+        Tanulo2 tanulo15 = new Tanulo2();
+        tanulo15.nev = "Peti";
+        tanulo15.eletkor = 2;
+        Tanulo2 tanulo16 = new Tanulo2();
+        tanulo16.nev = "Dani2";
+        tanulo16.eletkor = 2;
+        Tanulo2 tanulo17 = new Tanulo2();
+        tanulo17.nev = "Soma";
+        tanulo17.eletkor = 2;
+        Tanulo2 tanulo18 = new Tanulo2();
+        tanulo18.nev = "Milan";
+        tanulo18.eletkor = 2;
+        Tanulo2 tanulo19 = new Tanulo2();
+        tanulo19.nev = "Kamilla";
+        tanulo19.eletkor = 2;
+        Tanulo2 tanulo20 = new Tanulo2();
+        tanulo20.nev = "Anasztazia";
+        tanulo20.eletkor = 2;
+        Tanulo2 tanulo21 = new Tanulo2();
+        tanulo21.nev = "Dorka";
+        tanulo21.eletkor = 2;
+        Tanulo2 tanulo22 = new Tanulo2();
+        tanulo22.nev = "Brigitta";
+        tanulo22.eletkor = 2;
+        Tanulo2 tanulo23 = new Tanulo2();
+        tanulo23.nev = "Adrienn";
+        tanulo23.eletkor = 2;
+        Tanulo2 tanulo24 = new Tanulo2();
+        tanulo24.nev = "Levi";
+        tanulo24.eletkor = 2;
+        Tanulo2 tanulo25 = new Tanulo2();
+        tanulo25.nev = "Veronika2";
+        tanulo25.eletkor = 2;
+
+        tanulo1.bemutatkozas();
+        tanulo2.bemutatkozas();
+        tanulo3.bemutatkozas();
+        tanulo4.bemutatkozas();
+        tanulo5.bemutatkozas();
+        tanulo6.bemutatkozas();
+        tanulo7.bemutatkozas();
+        tanulo8.bemutatkozas();
+        tanulo9.bemutatkozas();
+        tanulo10.bemutatkozas();
+        tanulo11.bemutatkozas();
+        tanulo12.bemutatkozas();
+        tanulo13.bemutatkozas();
+        tanulo14.bemutatkozas();
+        tanulo15.bemutatkozas();
+        tanulo16.bemutatkozas();
+        tanulo17.bemutatkozas();
+        tanulo18.bemutatkozas();
+        tanulo19.bemutatkozas();
+        tanulo20.bemutatkozas();
+        tanulo21.bemutatkozas();
+        tanulo22.bemutatkozas();
+        tanulo23.bemutatkozas();
+        tanulo24.bemutatkozas();
+        tanulo25.bemutatkozas();
+
+    }
+}
